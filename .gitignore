@@ -106,3 +106,8 @@ venv/Lib/site-packages/setuptools-40.8.0-py3.6.egg
 venv/Lib/site-packages/setuptools.pth
 venv/pyvenv.cfg
 .idea/vcs.xml
+project/db/COVID-19.csv
+project/db/COVID-19.xlsx
+project/notebooks/ukazka.ipynb
+project/db/COVID-19.xlsx
+project/db/COVID-19.xlsx
