@@ -1,23 +1,23 @@
-;Tento dotazník bol vytvorenı a slúi na zistenie prítomnosti koronavírusu z odpovedí. 
+;Tento dotaznï¿½k bol vytvorenï¿½ a slï¿½ï¿½i na zistenie prï¿½tomnosti koronavï¿½rusu z odpovedï¿½ u opytaneho.
 
 (defrule banner ""
   (declare (salience 10))
   =>
   (printout t crlf crlf)
   (printout t "Call centrum pre Slovensko: +421 222 200 910" crlf )
-  (printout t "Dôleité informácie nájdete na: https://www.korona.gov.sk/" crlf)
-  (printout t "Ako poiada o vyšetrenie: https://www.korona.gov.sk/poziadat-o-vysetrenie-na-covid-19/" crlf)
+  (printout t "Dï¿½leï¿½itï¿½ informï¿½cie nï¿½jdete na: https://www.korona.gov.sk/" crlf)
+  (printout t "Ako poï¿½iadaï¿½ o vyï¿½etrenie: https://www.korona.gov.sk/poziadat-o-vysetrenie-na-covid-19/" crlf)
   (printout t crlf crlf))
 ;--------------------------
 (defrule horucka>38
 =>
-(printout t "Máte teplotu nad 38 stupòov Celzia? [ano/nie] " crlf)
+(printout t "Mï¿½te teplotu nad 38 stupï¿½ov Celzia? [ano/nie] " crlf)
 (assert (priznak-horucka (read))))
 
 (defrule historia-cestovania
 (priznak-horucka nie)
 =>
-(printout t "Cestovali ste za posledné obdobie do zahranicia? [ano/nie] " crlf)
+(printout t "Cestovali ste za poslednï¿½ obdobie do zahranicia? [ano/nie] " crlf)
 (assert (cestoval (read))))
 
 (defrule predpoklad-zdravy
@@ -32,14 +32,14 @@
 (cestoval ano))
 =>
 (printout t crlf "-------- VYSLEDOK --------" crlf)
-(printout t "Prosim, dostavte sa co najskôr na otestovanie." crlf)
-(printout t "Ako poiada o vyšetrenie: https://www.korona.gov.sk/poziadat-o-vysetrenie-na-covid-19/" crlf)
+(printout t "Prosim, dostavte sa co najskï¿½r na otestovanie." crlf)
+(printout t "Ako poï¿½iadaï¿½ o vyï¿½etrenie: https://www.korona.gov.sk/poziadat-o-vysetrenie-na-covid-19/" crlf)
 (assert (kondicia-rizikovy ano)))
 
 (defrule prechladnutie
 (priznak-horucka ano)
 =>
-(printout t "Máte kašel, nádchu alebo oboje [ano/nie]?  " clrf)
+(printout t "Mï¿½te kaï¿½el, nï¿½dchu alebo oboje [ano/nie]?  " clrf)
 (assert (je-prechladnuty (read))))
 
 (defrule podozrenie-chripka
@@ -47,14 +47,14 @@
 (je-prechladnuty nie))
 =>
 (printout t crlf "-------- VYSLEDOK --------" crlf)
-(printout t "Vyzerá to na horúcku. Prosím, zostante doma a odpocívajte. V prípade zhorsenia zdravotného stavu kontaktujte svojho lekára." crlf)
+(printout t "Vyzerï¿½ to na horï¿½cku. Prosï¿½m, zostante doma a odpocï¿½vajte. V prï¿½pade zhorsenia zdravotnï¿½ho stavu kontaktujte svojho lekï¿½ra." crlf)
 (assert (ma-horucku ano)))
 
 (defrule tazkosti-dychania
 (and (priznak-horucka ano)
 (je-prechladnuty ano))
 =>
-(printout t "Máte zápal plúc, zápal priedušiek alebo dıchavicnost [ano/nie]? " crlf)
+(printout t "Mï¿½te zï¿½pal plï¿½c, zï¿½pal prieduï¿½iek alebo dï¿½chavicnostï¿½ [ano/nie]? " crlf)
 (assert (dychavicnost(read))))
 
 (defrule bez-dychavicnosti
@@ -63,7 +63,7 @@
 (dychavicnost nie))
 =>
 (printout t crlf "-------- VYSLEDOK --------" crlf)
-(printout t "Vyzerá to na chrípku. Nezabudnite nosit spravne rúško, dodriavat odstup a umıvajte si pravidelne ruky. A hlavne si odpoèinte." crlf)
+(printout t "Vyzerï¿½ to na chrï¿½pku. Nezabudnite nosiï¿½t spravne rï¿½ï¿½ko, dodrï¿½iavatï¿½ odstup a umï¿½vaï¿½jte si pravidelne ruky. A hlavne si odpoï¿½inte." crlf)
 (assert (kondicia-chripka ano)))
 
 (defrule ma-dychavicnost
@@ -81,7 +81,7 @@
 (naposledy-cestoval nie))
 =>
 (printout t crlf "-------- VYSLEDOK --------" crlf)
-(printout t "Váš stav bude monitorovanı v priebehu nasledujúcich 2 tıdnov. Zostante prosím doma a vyhıbajte sa kontaktu s ludmi." )
+(printout t "Vï¿½ stav bude monitorovanï¿½ v priebehu nasledujï¿½cich 2 tï¿½ï¿½dnov. Zostante prosï¿½m doma a vyhï¿½bajte sa kontaktu s ludmi." )
 (assert (mierne-rizikovy(read))))
 
 
@@ -91,7 +91,7 @@
 (dychavicnost ano)
 (naposledy-cestoval ano))
 =>
-(printout t "Dostali ste sa do kontaktu s niekım, kto je infikovanı chorobou Covid-19? [ano/nie] " clrf)
+(printout t "Dostali ste sa do kontaktu s niekï¿½m, kto je infikovanï¿½ chorobou Covid-19? [ano/nie] " clrf)
 (assert (bol-v-kontakte(read))))
 
 (defrule je-rizikovy
@@ -102,8 +102,8 @@
 (bol-v-kontakte nie))
 =>
 (printout t crlf "-------- VYSLEDOK --------" crlf)
-(printout t "Je nutná izolácia a otestovanie." crlf)
-(printout t "Ako poiada o vyšetrenie: https://www.korona.gov.sk/poziadat-o-vysetrenie-na-covid-19/" crlf)
+(printout t "Je nutnï¿½ izolï¿½cia a otestovanie." crlf)
+(printout t "Ako poï¿½iadaï¿½ o vyï¿½etrenie: https://www.korona.gov.sk/poziadat-o-vysetrenie-na-covid-19/" crlf)
 (assert (moze-byt-infikovany)))
 
 (defrule velmi-rizikovy
@@ -114,8 +114,8 @@
 (bol-v-kontakte ano))
 =>
 (printout t crlf "-------- VYSLEDOK --------" crlf)
-(printout t "Hrozí, e ste boli infikovanı vírusom Covid-19. Je nutná izolácia a otestovanie. Prosím, co najskôr kontaktujte svojho lekára a rodinu.")
+(printout t "Hrozï¿½, ï¿½e ste boli infikovanï¿½ vï¿½rusom Covid-19. Je nutnï¿½ izolï¿½cia a otestovanie. Prosï¿½m, co najskï¿½r kontaktujte svojho lekï¿½ra a rodinu.")
 (printout t "Call centrum pre Slovensko: +421 222 200 910" crlf )
-(printout t "Dôleité informácie nájdete na: https://www.korona.gov.sk/" crlf)
-(printout t "Ako poiada o vyšetrenie: https://www.korona.gov.sk/poziadat-o-vysetrenie-na-covid-19/" crlf)
+(printout t "Dï¿½leï¿½itï¿½ informï¿½cie nï¿½jdete na: https://www.korona.gov.sk/" crlf)
+(printout t "Ako poï¿½iadaï¿½ o vyï¿½etrenie: https://www.korona.gov.sk/poziadat-o-vysetrenie-na-covid-19/" crlf)
 (assert (je-infikovany(read))))
