@@ -1,0 +1,13 @@
+Klient;Prijem;Konto;Pohlavie;Nezamestnany;Uver
+K1;Vysoky;Vysoke;Zena;Nie;Ano
+K2;Vysoky;Vysoke;Muz;Nie;Ano
+K3;Nizky;Nizke;Muz;Nie;Nie
+K4;Nizky;Vysoke;Zena;Ano;Ano
+K5;Nizky;Vysoke;Muz;Ano;Ano
+K6;Nizky;Nizke;Zena;Ano;Nie
+K7;Vysoky;Nizke;Muz;Nie;Ano
+K8;Vysoky;Nizke;Zena;Ano;Ano
+K9;Nizky;Stredne;Muz;Ano;Nie
+K10;Vysoky;Stredne;Zena;Nie;Ano
+K11;Nizky;Stredne;Zena;Ano;Nie
+K12;Nizky;Stredne;Muz;Nie;Ano
